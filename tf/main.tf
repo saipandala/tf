@@ -10,10 +10,7 @@ resource "aws_s3_bucket_acl" "acl-test" {
     acl    = "private"
 }
 
-provider "aws" {
-  region = "us-west-2"
-  
-}
+
 
 terraform {
   backend "s3" {
