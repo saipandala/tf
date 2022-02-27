@@ -1,17 +1,22 @@
 resource "aws_s3_bucket" "paas-cp" {
-bucket = "paas-cp-s3-remote"
+bucket = var.bucket
 tags = {
-    Name        = "arun"
-    Environment = "Dev"
+    Name        = var.bucket
+    Environment = var.env
     }
 }
 resource "aws_s3_bucket_acl" "acl-test" {
     bucket = aws_s3_bucket.paas-cp.id
-    acl    = "private"
+    acl    = var.acl
 }
 
 
-
+resource "aws_s3_bucket_versioning" "versioning_test" {
+  bucket = aws_s3_bucket.paas-cp.id
+  versioning_configuration {
+    status = var.versioning
+  }
+}
 terraform {
   backend "s3" {
     bucket = "paas-us-west-2-development-tfstate-bucket"
