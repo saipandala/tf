@@ -21,10 +21,10 @@ resource "aws_s3_bucket_versioning" "versioning_test" {
 terraform {
   backend "s3" {
     bucket = "paas-us-west-2-development-tfstate-bucket"
-    key    = "test-1-remote-s3"
+    key    = "cp-tf-remote-s3"
     region = "us-west-2"
     shared_credentials_file = "aws-creds.ini"
-    workspace_key_prefix = "crossplane-test-remote-s3"
+    workspace_key_prefix = "crossplane-test-remote-cp-s3"
   }
 }
 
