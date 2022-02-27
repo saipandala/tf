@@ -1,7 +1,8 @@
 resource "aws_s3_bucket" "paas-cp" {
-bucket = var.bucket
+bucket = var.Bucket
+force_destroy = var.Forcedestroy
 tags = {
-    Name        = var.bucket
+    Name        = var.Bucket
     Environment = var.env
     }
 }
@@ -14,7 +15,7 @@ resource "aws_s3_bucket_acl" "acl-test" {
 resource "aws_s3_bucket_versioning" "versioning_test" {
   bucket = aws_s3_bucket.paas-cp.id
   versioning_configuration {
-    status = var.versioning
+    status = var.VersioningConfiguration
   }
 }
 terraform {
@@ -28,3 +29,9 @@ terraform {
 }
 
 
+variable "LocationConstraint" {}
+variable "acl" {}
+variable "VersioningConfiguration" {}
+variable "Bucket" {}
+variable "Forcedestroy" {}
+variable "env" {}
