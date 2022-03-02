@@ -1,0 +1,47 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+  name: compositeopms3buckets.opm.paas.org
+spec:
+  group: opm.paas.org
+  names:
+    kind: compositeopms3buckets
+    plural: compositeopms3buckets
+  claimNames:
+    kind: opms3bucket
+    plural: opms3buckets
+  versions:
+  - name: v1alpha1
+    served: true
+    referenceable: true
+    schema:
+      openAPIV3Schema:
+        type: object
+        properties:
+          spec:
+            type: object
+            properties:
+              parameters:
+                type: object
+                properties:
+                  LocationConstraint:
+                    type: string
+                  acl:
+                    type: string  
+                  VersioningConfiguration:
+                    type: string
+                  Bucket:
+                    type: string  
+                  Forcedestroy:
+                    type: string     
+                  Namespace:
+                    type: string  
+                required:
+                  - LocationConstraint
+                  - acl
+                  - VersioningConfiguration
+                  - Bucket
+                  - Namespace
+                  - Forcedestroy
+            required:
+              - parameters
