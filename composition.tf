@@ -19,7 +19,7 @@ spec:
         kind: Workspace
         spec:
           forProvider:
-            module: git::https://github.devtools.predix.io/industrial-cloud-pcs/cp-aws.git//resources-crossplane-customdefinitions-xrd/tf?ref=main
+            module: git::https://github.com/arun12cool/tf.git//tf?ref=main
             source: Remote
             vars:
               - key: LocationConstraint
