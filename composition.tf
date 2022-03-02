@@ -1,15 +1,17 @@
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
 metadata:
-  name: opms3buckets.opm.paas.org
+  name: s3buckets.opm.paas.org
   labels:
     crossplane.io/xrd: compositeopms3buckets.opm.paas.org
     provider: terraform-provider
+    team: opm
+
 spec:
   writeConnectionSecretsToNamespace: crossplane-system
   compositeTypeRef:
     apiVersion: opm.paas.org/v1alpha1
-    kind: compositeopms3bucket
+    kind: CompositeOpmS3Bucket
   resources:
     - name: crossplane-tf-s3bucket-opm-pi
       base:
@@ -17,7 +19,7 @@ spec:
         kind: Workspace
         spec:
           forProvider:
-            module: git::https://github.com/arun12cool/tf.git//tf?ref=main
+            module: git::https://github.devtools.predix.io/industrial-cloud-pcs/cp-aws.git//resources-crossplane-via-terraform/tf?ref=main
             source: Remote
             vars:
               - key: LocationConstraint
@@ -31,7 +33,7 @@ spec:
           providerConfigRef:
             name: tfproviderconfig-opmpi
           writeConnectionSecretToRef:
-            name: v1-crossplane-tf-s3bucket-opm-pi
+            name: opmpi-test
             namespace: crossplane-system
 
 
