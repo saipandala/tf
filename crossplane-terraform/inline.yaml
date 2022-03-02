@@ -1,0 +1,34 @@
+apiVersion: tf.crossplane.io/v1alpha1
+kind: Workspace
+metadata:
+  name: arun-cp-4
+  annotations:
+spec:
+  forProvider:
+    source: Inline
+    module: |
+      resource "aws_s3_bucket" "paas-cp" {
+       bucket = "paas-cp-s3-inline"
+       tags = {
+       Name        = "arun"
+       Environment = "Dev"
+       }
+      }
+      resource "aws_s3_bucket_acl" "acl-test" {
+       bucket = aws_s3_bucket.paas-cp.id
+       acl    = "private"
+      }
+      terraform {
+       backend "s3" {
+        bucket = "paas-us-west-2-development-tfstate-bucket"
+        key    = "s3-test"
+        region = "us-west-2"
+        shared_credentials_file = "aws-creds.ini"
+        workspace_key_prefix = "crossplane-test"
+       }
+      }
+  writeConnectionSecretToRef:
+    namespace: crossplane-system
+    name: terraform-workspace-arun-cp-4
+  providerConfigRef:
+    name: tfcon

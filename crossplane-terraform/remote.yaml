@@ -1,0 +1,14 @@
+apiVersion: tf.crossplane.io/v1alpha1
+kind: Workspace
+metadata:
+  name: arun-cp-test-remote-1
+  annotations:
+spec:
+  forProvider:
+    source: Remote
+    module: git::https://github.com/arun12cool/tf.git//crossplane-terraform/tf?ref=main
+  writeConnectionSecretToRef:
+    namespace: crossplane-system
+    name: terraform-workspace-arun-cp-remote-1
+  providerConfigRef:
+    name: tfcon

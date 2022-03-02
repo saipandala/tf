@@ -20,7 +20,7 @@ resource "aws_s3_bucket_versioning" "versioning_test" {
 }
 terraform {
   backend "s3" {
-    bucket = "paas-us-west-2-development-tfstate-bucket"
+    bucket = "tfstate-bucket"
     key    = "cp-tf-remote-s3"
     region = "us-west-2"
     shared_credentials_file = "aws-creds.ini"

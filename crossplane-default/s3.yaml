@@ -1,0 +1,13 @@
+### s3 ###
+
+apiVersion: s3.aws.crossplane.io/v1beta1
+kind: Bucket
+metadata:
+  name: paas-s3-cp
+spec:
+  forProvider:
+    acl: private
+    locationConstraint: us-west-2
+    objectLockEnabledForBucket: false
+  providerConfigRef:
+    name: awsconfig
