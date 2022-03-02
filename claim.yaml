@@ -1,3 +1,4 @@
+apiVersion: opm.paas.org/v1alpha1
 kind: OpmS3Bucket
 metadata:
   name: opms3bucket
