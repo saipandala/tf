@@ -1,10 +1,9 @@
 apiVersion: opm.paas.org/v1alpha1
-kind: opms3bucket
+kind: OpmS3Bucket
 metadata:
   name: opms3bucket
   namespace: opm-pi
-  annotations:
-    crossplane.io/external-name: opms3bucket
+
 spec:
   parameters:
     LocationConstraint: "us-west-2"
@@ -13,5 +12,8 @@ spec:
     Bucket: "opms3bucket"
     Namespace: "opm-pi"
     Forcedestroy: "false"
-  compositionRef:     
-    name: opms3buckets.opm.paas.org
+  compositionSelector:
+    matchLabels:
+      provider: terraform-provider
+      team: opm
+
