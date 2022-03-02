@@ -13,10 +13,10 @@ resource "aws_s3_bucket_acl" "acl-test" {
 
 terraform {
        backend "s3" {
-        bucket = "tfstate-bucket"
-        key    = "s3-test-1"
+        bucket = "paas-us-west-2-development-tfstate-bucket"
+        key    = "s3-test-remote"
         region = "us-west-2"
         shared_credentials_file = "aws-creds.ini"
-        workspace_key_prefix = "crossplane-1-test"
+        workspace_key_prefix = "crossplane-test-remote"
        }
       }
