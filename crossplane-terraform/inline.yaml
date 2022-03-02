@@ -1,14 +1,14 @@
 apiVersion: tf.crossplane.io/v1alpha1
 kind: Workspace
 metadata:
-  name: arun-cp-4
+  name: arun-cp-5
   annotations:
 spec:
   forProvider:
     source: Inline
     module: |
       resource "aws_s3_bucket" "paas-cp" {
-       bucket = "paas-cp-s3-inline"
+       bucket = "paas-cp-s3-inline-argo"
        tags = {
        Name        = "arun"
        Environment = "Dev"
