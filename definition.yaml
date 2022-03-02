@@ -5,10 +5,10 @@ metadata:
 spec:
   group: opm.paas.org
   names:
-    kind: compositeopms3buckets
+    kind: CompositeOpmS3Bucket
     plural: compositeopms3buckets
   claimNames:
-    kind: opms3bucket
+    kind: OpmS3Bucket
     plural: opms3buckets
   versions:
   - name: v1alpha1
