@@ -1,7 +1,7 @@
 apiVersion: tf.crossplane.io/v1alpha1
 kind: Workspace
 metadata:
-  name: arun-cp-test-remote-1
+  name: arun-cp-test-remote-2
   annotations:
 spec:
   forProvider:
