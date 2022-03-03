@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     path: crossplane-terraform
-    repoURL: 'https://github.com/arun12cool/tf.git//crossplane-argocd'
+    repoURL: 'https://github.com/arun12cool/tf.git'
     targetRevision: HEAD
   syncPolicy:
     automated:
