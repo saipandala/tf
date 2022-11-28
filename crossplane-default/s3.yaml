@@ -9,5 +9,7 @@ spec:
     acl: private
     locationConstraint: us-west-2
     objectLockEnabledForBucket: false
+    versioningConfiguration:
+        - status: Enabled
   providerConfigRef:
     name: default
